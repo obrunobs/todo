@@ -3,6 +3,6 @@
   <td><%= task.due_date %></td>
   <td>
     <%= link_to "Edit", edit_task_path(task), class: 'btn btn-primary btn-sm' %>
-    <%= link_to "Delete", task_path(task), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "are you sure to delete this task?" } %>
+    <%= link_to "Delete", task_path(task), class: 'btn btn-danger btn-sm', data: { turbo_method: :delete, turbo_confirm: "are you sure to delete this task?" } %>
   </td>
 </tr>
