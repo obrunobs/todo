@@ -1,5 +1,13 @@
 <tr class="border-top">
-  <td><%= task.description %></td>
+  <td>
+    <span class="text-<%= task.symbol_color %>"><%= task.symbol %></span>
+    <% if task.done? %>
+      <s class="text-muted"><%= task.description %></s>
+    <% else%>
+      <%= task.description %>
+    <% end %>
+  </td>
+
   <td><%= task.due_date %></td>
   <td>
     <%= link_to "Edit", edit_task_path(task), class: 'btn btn-primary btn-sm' %>
