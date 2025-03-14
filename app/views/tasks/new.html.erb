@@ -1,3 +1,5 @@
-<h1 class="display-4">New task</h1>
+<h1 class="display-4">
+  New <%= params[:parent_id].present? ? "Subtask" : "Task" %>
+</h1>
 
 <%= render "form", task: @task %>

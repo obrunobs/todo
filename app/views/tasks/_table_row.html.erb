@@ -10,7 +10,10 @@
 
   <td><%= task.due_date %></td>
   <td class="text-end pe-0">
-    <%= link_to "Edit", edit_task_path(task), class: 'btn btn-primary btn-sm' %>
-    <%= link_to "Delete", task_path(task), class: 'btn btn-danger btn-sm', data: { turbo_method: :delete, turbo_confirm: "are you sure to delete this task?" } %>
+    <% if task.parent? %>
+      <%= link_to "+ Subtask", new_task_path(parent_id: task.id), class: "btn btn-outline-success btn-sm" %>
+    <% end %>
+    <%= link_to "Edit", edit_task_path(task), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Delete", task_path(task), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "are you sure to delete this task?" } %>
   </td>
 </tr>
