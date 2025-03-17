@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   validates :description, presence: true
+  validates :due_date, presence: true
   validates :done, inclusion: [ true, false ]
 
   belongs_to :parent, class_name: "Task", optional: true
@@ -18,9 +19,9 @@ class Task < ApplicationRecord
 
   def symbol
     case status
-    when "pending" then ">"
-    when "done" then "✓"
-    when "expired" then "x"
+    when "pending" then ">>"
+    when "done" then " ✓"
+    when "expired" then " x"
     end
   end
 
